@@ -85,7 +85,7 @@ function renderMovies(movies = []) {
         };
         // console.log("MOPVIE INFOE", movieInfo);
 
-        const ifFav = favMoviesMAPPING[title];
+        const ifFav = favMoviesMAPPING[movieInfo.title];
         let html = `
             <img class="poster" src=${imageURL} alt= ${title}/>
                 <p class="title">${title}</p>
