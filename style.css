@@ -78,23 +78,32 @@ footer {
 .tabs {
  display: flex;
  justify-content: flex-start;
+
  gap: 10px;
  margin-left: 40px;
+ overflow: scroll;
 }
 
 
-#all-tab,
-#favorits-tab {
- width: 100px;
- height: 30px;
+.tabs button {
+    padding: 4px;
+    margin: 5px;
+ display: block;
+ width: 120px;
+ height: fit-content;
  border: none;
  border-radius: 5px;
  cursor: pointer;
+ 
+}
+.tabs button:hover{
+    transform: scale(1.05);
+    box-shadow: 3px 3px 3px purple;
+    
 }
 
-
 .active-tab {
- background-color: #333;
+ background-color: rgb(102, 12, 102);
  color: white;
 }
 
