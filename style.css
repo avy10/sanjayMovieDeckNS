@@ -82,6 +82,8 @@ footer {
  gap: 10px;
  margin-left: 40px;
  overflow: scroll;
+ overflow-y: scroll;
+ scrollbar-width: 1px;
 }
 
 
@@ -133,6 +135,10 @@ footer {
  margin: 10px;
  border-radius: 5px;
  list-style-type: none;
+}
+
+.card:hover{
+    box-shadow: 4px 4px 4px tomato;
 }
 
 
