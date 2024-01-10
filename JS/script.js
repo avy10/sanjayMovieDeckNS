@@ -3,11 +3,19 @@ const prevBTN = document.getElementById("prev-button");
 const nextBTN = document.getElementById("next-button");
 const currPage = document.getElementById("currPage");
 const tPage = document.getElementById("totalPage");
+
+
+
+const searchBTN = document.getElementById("search-button");
+const searchQueryBox = document.getElementById("search-input");
 // https://api.themoviedb.org/3/movie/top_rated?api_key=024c2acdba0f8d056b15281072c1a833&language=en-US&page=1
 const APIKEY = `024c2acdba0f8d056b15281072c1a833`; // this is my own API key
 // https://api.themoviedb.org/3/movie/top_rated?api_key=024c2acdba0f8d056b15281072c1a833&language=en-US&page=1
 let currentPage = 1;
 let totaPages = 1;
+
+let searchPage = 1;
+let totalSearchPage = 1;
 let movies = []; // array which contains movie list
 
 const movieListELEM = document.getElementById("movies-list");
@@ -207,29 +215,101 @@ function checkBUTTONS(){
 
 }
 
+function checkSearchButtons(){
+    if(searchPage >= 2){
+        prevBTN.disabled=false;
+    } else {
+        prevBTN.disabled = true;
+    }
+    console.log(searchPage, totalSearchPage)
+    if(searchPage >= totalSearchPage){
+        console.log("WHY NOt")
+        nextBTN.disabled = true;
+    } else{
+        nextBTN.disabled = false;
+        
+    }
+}
+
 function navigateNextt(){
-    currentPage++;
+    if(searchQueryBox.value != ""){
+        searchPage++;
+        
+        searchMovies();
+        
+        currPage.innerHTML = searchPage;
+        
+        nextBTN.disabled = true;
+        prevBTN.disabled = true;
+        clearTimeout(timeOut);
+        timeOut = setTimeout(()=>{
+            checkSearchButtons();
+        }, 800)
+    } else {
+        currentPage++;
+        fetchMovies();
+        currPage.innerHTML = currentPage;
+        nextBTN.disabled = true;
+        prevBTN.disabled = true;
+        clearTimeout(timeOut);
+        timeOut = setTimeout(()=>{
+            checkBUTTONS();
+        }, 800)
+    }
     
-    fetchMovies();
-    currPage.innerHTML = currentPage;
-    nextBTN.disabled = true;
-    prevBTN.disabled = true;
-    clearTimeout(timeOut);
-    timeOut = setTimeout(()=>{
-        checkBUTTONS();
-    }, 800)
-    // get the movie data and render the movies
 }
 
 function navigatePrevv(){
-    currentPage--;
-    fetchMovies();
-    currPage.innerHTML = currentPage;
-    clearTimeout(timeOut);
-    timeOut = setTimeout(()=>{
-        checkBUTTONS();
-    }, 800)
+    if(searchQueryBox.value != ""){
+        searchPage--;
+        
+        searchMovies();
+
+        currPage.innerHTML = searchPage;
+
+        nextBTN.disabled = true;
+        prevBTN.disabled = true;
+        clearTimeout(timeOut);
+        timeOut = setTimeout(()=>{
+            checkSearchButtons();
+        }, 800)
+    } else{
+        currentPage--;
+        fetchMovies();
+        currPage.innerHTML = currentPage;
+        clearTimeout(timeOut);
+        timeOut = setTimeout(()=>{
+            checkBUTTONS();
+        }, 800)
+    }
+    
 }
 prevBTN.addEventListener("click", navigatePrevv);
 nextBTN.addEventListener("click", navigateNextt);
 
+// search funtionality
+function searchMovies(){
+    const searchQuery = searchQueryBox.value;
+    const url = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${searchPage}`;
+
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMjRjMmFjZGJhMGY4ZDA1NmIxNTI4MTA3MmMxYTgzMyIsInN1YiI6IjY1OTQ0MWNmNTFhNjRlMDI3MWY1ODQ5MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.w8bj-lh061oQKMX4iQSEYJmnwYp2P0kFTvYi30yfQfQ',
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        renderMovies(data.results)
+        totalSearchPage = data.total_pages;
+        currPage.innerHTML = searchPage;
+        tPage.innerHTML = totalSearchPage;
+        // Process the response data here
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+}
+searchBTN.addEventListener("click", searchMovies);
