@@ -14,6 +14,7 @@ const APIKEY = `024c2acdba0f8d056b15281072c1a833`; // this is my own API key
 let currentPage = 1;
 let totaPages = 1;
 
+let previousSearchQuery;
 let searchPage = 1;
 let totalSearchPage = 1;
 let movies = []; // array which contains movie list
@@ -88,7 +89,7 @@ function renderMovies(movies = []) {
         let listItem = document.createElement("li");
         listItem.className = "card";
 
-        let imageURL = `https://image.tmdb.org/t/p/original${poster_path}`;
+        let imageURL = `https://image.tmdb.org/t/p/original${poster_path}` ?? `images\imgNotFound.jpg`;
 
         let movieInfo = {
             title : title.replaceAll(`'`, ``),
@@ -289,7 +290,12 @@ nextBTN.addEventListener("click", navigateNextt);
 
 // search funtionality
 function searchMovies(){
+    
     const searchQuery = searchQueryBox.value;
+    if(previousSearchQuery != searchQuery){
+        searchPage = 1;
+    }
+    previousSearchQuery = searchQuery;
     const url = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${searchPage}`;
 
     fetch(url, {
