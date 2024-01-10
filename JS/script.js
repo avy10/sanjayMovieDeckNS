@@ -86,8 +86,29 @@ function renderMovies(movies = []) {
         // console.log("MOPVIE INFOE", movieInfo);
 
         const ifFav = favMoviesMAPPING[movieInfo.title];
+
+        // adding genre buttons
+        const genres = JSON.parse(localStorage.getItem("genreID"));
+        let genreBTNHTML = "";
+        for(let genre of eachMovie.genre_ids){
+            const str = `
+            <button id=${genre}>${genres[genre]} </button>
+            `
+            genreBTNHTML += str;
+            /* const btn = document.createElement("button");
+            // console.log(genre, genres[genre])
+            btn.id=genre;
+            btn.textContent=genres.genre;
+            genreBTNARRAY.push(btn) */
+         }
+        // console.log(genreBTNARRAY)
+        
+
         let html = `
-            <img class="poster" src=${imageURL} alt= ${title}/>
+            <div class="imgContainer">
+                <img class="poster" src=${imageURL} alt= ${title}/>
+            </div>
+            <div class="fullDetails">
                 <p class="title">${title}</p>
                 <section class="vote-fav">
                     <section>
@@ -96,11 +117,21 @@ function renderMovies(movies = []) {
                     </section>
                     <i mInfo='${JSON.stringify(movieInfo)}' class="fa-regular fa-heart fa-2xl fav-icon ${ifFav ? "fa-solid" : ""}"></i>
                 </section>
+                <br>
+                <div class="genreBTNS">
+                ${genreBTNHTML}
+                </div>
+            </div>
+            <div class="extraInfo">
+                <p>${eachMovie.overview}
+            </div>
         `;
         
         
         listItem.innerHTML = html;
         movieListELEM.appendChild(listItem);
+
+        
 
         const favIconBTN = listItem.querySelector(".fav-icon");
         favIconBTN.addEventListener("click", (event)=>{
@@ -175,6 +206,6 @@ function navigateNextt(){
         
     }
 }
-prevBTN.addEventListener("click", navigatePrevv);
-prevBTN.addEventListener("click", navigateNextt);
+// prevBTN.addEventListener("click", navigatePrevv);
+// prevBTN.addEventListener("click", navigateNextt);
 
