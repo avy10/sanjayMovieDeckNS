@@ -100,8 +100,8 @@ footer {
      transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .tabs button:hover{
-    transform: scale(1.05);
-    box-shadow: 4px 4px 4px purple;
+    transform: scale(1.075);
+    box-shadow: 6px 6px 6px purple;
     border : none
     
 }
@@ -116,7 +116,9 @@ footer {
 .pagination {
  display: flex;
  justify-content: center;
+ align-items: center;
  margin-bottom: 10px;
+ height: fit-content;
 }
 
 
@@ -169,7 +171,7 @@ footer {
     right: -100%; /* Initially off-screen to the right */
     width: 40%; /* Adjust the width as needed */
     height: 100%;
-    background-color:  #14141483;
+    background-color:  #141414a2;
     z-index: 1; /* Set a higher z-index to appear on top */
     transition: transform 0.3s ease; /* Smooth transition for appearance */
 }
@@ -217,7 +219,7 @@ position: absolute;
  text-align: center;
  
  margin-bottom: 5px;
- height: 45px;
+ height: fit-content;
 }
 
 

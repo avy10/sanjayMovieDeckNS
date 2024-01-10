@@ -1,3 +1,8 @@
+
+const prevBTN = document.getElementById("prev-button");
+const nextBTN = document.getElementById("next-button");
+const currPage = document.getElementById("currPage");
+const tPage = document.getElementById("totalPage");
 // https://api.themoviedb.org/3/movie/top_rated?api_key=024c2acdba0f8d056b15281072c1a833&language=en-US&page=1
 const APIKEY = `024c2acdba0f8d056b15281072c1a833`; // this is my own API key
 // https://api.themoviedb.org/3/movie/top_rated?api_key=024c2acdba0f8d056b15281072c1a833&language=en-US&page=1
@@ -161,7 +166,7 @@ function renderMovies(movies = []) {
 
 async function fetchMovies(){
     try{
-        const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=en-US&page=1`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=en-US&page=${currentPage}`);
         let data = await response.json();
         console.log(data);
         // in the api endpoint we are fetching only top rated movies
@@ -172,7 +177,7 @@ async function fetchMovies(){
         // each object inside the results array contains the details of movies
 
         totaPages = data.total_pages; 
-
+        tPage.textContent=totaPages;
         renderMovies(movies); //render each movies on the html page
         //movielist contains the all the movie cards
     } catch(error){
@@ -186,25 +191,45 @@ fetchMovies();
 // after API call, loop in each movie and create a movie-card, and show the movie card on the webpage
 
 
-const prevBTN = document.getElementById("prev-button");
-const nextBTN = document.getElementById("next-button");
-const currPage = document.getElementById("currPage");
-const tPage = document.getElementById("totalPage");
-
-
-
-function navigateNextt(){
-    currentPage++;
-    
-    currPage.innerHTML = currentPage;
-
+let timeOut;
+function checkBUTTONS(){
+    if(currentPage >= 2){
+        prevBTN.disabled=false;
+    } else {
+        prevBTN.disabled = true;
+    }
     if(currentPage >= totaPages){
         nextBTN.disabled = true;
     } else{
         nextBTN.disabled = false;
         
     }
+
 }
-// prevBTN.addEventListener("click", navigatePrevv);
-// prevBTN.addEventListener("click", navigateNextt);
+
+function navigateNextt(){
+    currentPage++;
+    
+    fetchMovies();
+    currPage.innerHTML = currentPage;
+    nextBTN.disabled = true;
+    prevBTN.disabled = true;
+    clearTimeout(timeOut);
+    timeOut = setTimeout(()=>{
+        checkBUTTONS();
+    }, 800)
+    // get the movie data and render the movies
+}
+
+function navigatePrevv(){
+    currentPage--;
+    fetchMovies();
+    currPage.innerHTML = currentPage;
+    clearTimeout(timeOut);
+    timeOut = setTimeout(()=>{
+        checkBUTTONS();
+    }, 800)
+}
+prevBTN.addEventListener("click", navigatePrevv);
+nextBTN.addEventListener("click", navigateNextt);
 
