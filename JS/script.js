@@ -117,7 +117,6 @@ function renderMovies(movies = []) {
                     </section>
                     <i mInfo='${JSON.stringify(movieInfo)}' class="fa-regular fa-heart fa-2xl fav-icon ${ifFav ? "fa-solid" : ""}"></i>
                 </section>
-                <br>
                 <div class="genreBTNS">
                 ${genreBTNHTML}
                 </div>

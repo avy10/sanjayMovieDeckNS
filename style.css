@@ -155,9 +155,8 @@ footer {
 .fullDetails{
     position: absolute;
     bottom: 0;
-
     width: 100%;
-    height: 30%;
+    height: 28%;
     padding: 2px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.8);
@@ -170,7 +169,7 @@ footer {
     right: -100%; /* Initially off-screen to the right */
     width: 40%; /* Adjust the width as needed */
     height: 100%;
-    background-color:  #fbe3e8; /* Adjust background color as needed */
+    background-color:  #14141483;
     z-index: 1; /* Set a higher z-index to appear on top */
     transition: transform 0.3s ease; /* Smooth transition for appearance */
 }
@@ -186,7 +185,7 @@ position: absolute;
 
 .card:hover{
     width: 500px; 
-    box-shadow: 4px 4px 4px aqua;
+    box-shadow: 4px 4px 4px rgb(65, 231, 231);
 
 }
 .card:hover .extraInfo {
@@ -194,11 +193,11 @@ position: absolute;
     left: 0; /* Move the extraInfo div into view on hover */
     height: 30%;
     width: 100%;
-    opacity: 0.8;
     font-size: 16px;
+    font-family: consolas;
     overflow: scroll;
-    color: #c80e13;
-    text-shadow: 4px 4px 4px dodgerblue;
+    color: #00ffff;
+    text-shadow: 2px 2px 2px black;
 }
 
 
@@ -226,6 +225,7 @@ position: absolute;
  display: flex;
  justify-content: space-around;
   font-size: 16px;
+  overflow: hidden;
 
 }
 
@@ -254,6 +254,7 @@ position: absolute;
 }
 
 .genreBTNS {
+    margin-top: 10px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
