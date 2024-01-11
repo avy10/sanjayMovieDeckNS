@@ -40,17 +40,9 @@ body {
 }
 /*  */
 
-header {
- background-color: #333;
- color: white;
- padding: 20px;
-}
 
 
-header > a {
- color: white;
- text-decoration: none;
-}
+
 
 
 footer {
@@ -107,63 +99,6 @@ footer {
 }
 
 
-.tabs {
-    display: flex;
-    justify-content: flex-start;
-    max-width: 1540px;
-    gap: 10px;
-    /* margin-left: 100px;
-    margin-right: 100px; */
-    margin: 0 auto;
-    overflow-x: scroll;
-    scrollbar-width: thin; 
-    scrollbar-color: transparent transparent;
- 
-}
-
-.tabs::-webkit-scrollbar {
-    width: 5px;
-}
-.tabs::-webkit-scrollbar-track {
-    background: transparent;
-}
-.tabs::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border: 1px solid transparent;
-    border-radius: 5px;
-}
-.tabs:hover::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border: 1px solid transparent;
-}
-
-
-.tabs button {
-    padding: 10px;
-    margin: 5px;
-
-    display: block;
-    width: 120px;
-    height: fit-content;
-    /* border: none; */
-    border: 1px solid aqua;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
-    background: transparent;
-}
-.tabs button:hover{
-    transform: scale(1.075);
-    box-shadow: 6px 6px 6px purple;
-    border : none
-    
-}
-
-.active-tab {
- background-color: rgb(102, 12, 102);
- color: white;
-
-}
 
 
 .pagination {
@@ -356,7 +291,7 @@ position: absolute;
 }
 
 .genreBTNS {
-    margin-top: 10px;
+    margin: 10px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;

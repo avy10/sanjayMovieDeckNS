@@ -9,7 +9,8 @@ gap: 10px;
 
 
 .tabs {
-
+    display: flex;
+    justify-content: flex-start;
 
     gap: 10px;
     /* margin-left: 100px;
@@ -79,7 +80,44 @@ gap: 10px;
 }
 
 .active-tab {
- background-color: rgb(102, 12, 102);
- color: white;
+    background-color: rgb(102, 12, 102);
+    color: white;
+    border: 8px solid transparent;
+    border-radius: 5px;
+    animation: borderAnimation 10s linear infinite;
+}
 
+
+
+@keyframes borderAnimation {
+     /* bottom1 */
+    0% {
+        
+        border-width: 3px;
+        border-color: transparent transparent aqua purple;
+    }
+    /* left */
+    25% { 
+                border-width: 3px;
+
+        border-color: purple transparent transparent aqua;
+    }
+    /* top */
+    50% {
+                border-width: 3px;
+
+        border-color: aqua purple transparent transparent;
+    }
+    /* right */
+    75% {
+                border-width: 3px;
+
+        border-color: transparent aqua purple transparent;
+    }
+    /* bottom 2*/
+    100% {
+                border-width: 3px;
+
+        border-color: transparent transparent aqua purple;
+    }
 }

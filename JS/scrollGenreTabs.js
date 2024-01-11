@@ -5,14 +5,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     scrollLeftButton.addEventListener("click", function () {
         tabsContainer.scrollBy({
-            left: -200, 
+            left: -500, 
             behavior: "smooth",
         });
     });
 
     scrollRightButton.addEventListener("click", function () {
         tabsContainer.scrollBy({
-            left: 200,
+            left: 500,
             behavior: "smooth",
         });
     });
