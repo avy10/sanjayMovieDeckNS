@@ -84,8 +84,9 @@ gap: 10px;
     color: white;
     border: 8px solid transparent;
     border-radius: 5px;
-    animation: borderAnimation 10s linear infinite;
+    animation: borderAnimation 15s linear infinite;
 }
+
 
 
 
@@ -94,30 +95,30 @@ gap: 10px;
     0% {
         
         border-width: 3px;
-        border-color: transparent transparent aqua purple;
+        border-color: aqua purple aqua purple;
     }
     /* left */
     25% { 
                 border-width: 3px;
 
-        border-color: purple transparent transparent aqua;
+        border-color: purple aqua purple aqua;
     }
     /* top */
     50% {
                 border-width: 3px;
 
-        border-color: aqua purple transparent transparent;
+        border-color: aqua purple aqua purple;
     }
     /* right */
     75% {
                 border-width: 3px;
 
-        border-color: transparent aqua purple transparent;
+        border-color: purple aqua purple aqua;
     }
     /* bottom 2*/
     100% {
                 border-width: 3px;
 
-        border-color: transparent transparent aqua purple;
+        border-color: aqua purple aqua purple;
     }
 }
