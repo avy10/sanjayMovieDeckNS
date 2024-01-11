@@ -252,7 +252,7 @@ function navigateNextt(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkSearchButtons();
-        }, 800)
+        }, 1500)
     } else {
         currentPage++;
         fetchMovies();
@@ -262,7 +262,7 @@ function navigateNextt(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkBUTTONS();
-        }, 800)
+        }, 1500)
     }
     
 }
@@ -280,7 +280,7 @@ function navigatePrevv(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkSearchButtons();
-        }, 800)
+        }, 1500)
     } else{
         currentPage--;
         fetchMovies();
@@ -288,7 +288,7 @@ function navigatePrevv(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkBUTTONS();
-        }, 800)
+        }, 1500)
     }
     
 }
