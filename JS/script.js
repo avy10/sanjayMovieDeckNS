@@ -77,6 +77,7 @@ function renderMovies(movies = []) {
         return acc;
     }, {})
 
+
     movies.forEach((eachMovie) => {
         // grab the fav movies from local storage inside the favMovies
         // search if eachMovie is present inside the favMovies i.e. Has it been favourited?
@@ -89,7 +90,7 @@ function renderMovies(movies = []) {
         let listItem = document.createElement("li");
         listItem.className = "card";
 
-        let imageURL = `https://image.tmdb.org/t/p/original${poster_path}` ?? `images\imgNotFound.jpg`;
+        let imageURL = poster_path == null ? `images/imgNotFound.jpg` :  `https://image.tmdb.org/t/p/original${poster_path}` ;
 
         let movieInfo = {
             title : title.replaceAll(`'`, ``),
@@ -97,7 +98,7 @@ function renderMovies(movies = []) {
             vote_count,
             poster_path,
         };
-        // console.log("MOPVIE INFOE", movieInfo);
+        console.log("MOPVIE INFOE", movieInfo);
 
         const ifFav = favMoviesMAPPING[movieInfo.title];
 
@@ -119,9 +120,11 @@ function renderMovies(movies = []) {
         
 
         let html = `
+         
             <div class="imgContainer">
                 <img class="poster" src=${imageURL} alt= ${title}/>
             </div>
+            
             <div class="fullDetails">
                 <p class="title">${title}</p>
                 <section class="vote-fav">
@@ -138,12 +141,16 @@ function renderMovies(movies = []) {
             <div class="extraInfo">
                 <p>${eachMovie.overview}
             </div>
+
         `;
         
         
         listItem.innerHTML = html;
-        movieListELEM.appendChild(listItem);
 
+        movieListELEM.appendChild(listItem);
+        
+        //  listItem.style.background = `rgba(0, 0, 0, 0.2) url('${imageURL}') no-repeat center center`;
+        //  listItem.style.backgroundSize = "100% 100%"
         
 
         const favIconBTN = listItem.querySelector(".fav-icon");
@@ -200,7 +207,7 @@ fetchMovies();
 // after API call, loop in each movie and create a movie-card, and show the movie card on the webpage
 
 
-let timeOut;
+    let timeOut;
 function checkBUTTONS(){
     if(currentPage >= 2){
         prevBTN.disabled=false;
@@ -307,15 +314,17 @@ function searchMovies(){
     })
     .then(response => response.json())
     .then(data => {
-        renderMovies(data.results)
+        
         totalSearchPage = data.total_pages;
         currPage.innerHTML = searchPage;
         tPage.innerHTML = totalSearchPage;
+        renderMovies(data.results)
+        checkSearchButtons();
         // Process the response data here
     })
     .catch(error => {
         console.error('Error:', error);
     });
-
+    
 }
 searchBTN.addEventListener("click", searchMovies);

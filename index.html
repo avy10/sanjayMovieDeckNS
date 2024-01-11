@@ -4,6 +4,7 @@
 <head>
     <title>Movie Deck</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="genreTabs.css">
 </head>
 
 <body>
@@ -25,18 +26,23 @@
         <button id="sort-by-rating">Sort by rating (least to most)</button>
     </div>
 
-
-    <div class="tabs">
-        <button id="all-tab" class="active-tab">All</button>
-        <button id="favorits-tab">Favorites</button>
-        <!--         <button id="dev-tab">Dev Recommended</button>
+    <div class="tabs-container">
+        <button class="scroll-button" id="scroll-left">&#11164;</button>
+        <div class="tabs">
+            <button id="all-tab" class="active-tab">All</button>
+            <button id="favorits-tab">Favorites</button>
+            <!--         <button id="dev-tab">Dev Recommended</button>
  -->
+        </div>
+        <button class="scroll-button" id="scroll-right">&#11166;</button>
+
     </div>
+
 
 
     <div class="movies-list-pagination">
         <ul id="movies-list">
-            <li class="card">
+            <!-- <li class="card">
                 <div class="imgContainer">
                     <img class="poster" src="https://image.tmdb.org/t/p/original//6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
                         alt="The Lord of the Rings: The Fellowship of the Ring" />
@@ -59,7 +65,7 @@
                         stretch in prison, Dufresne comes to be admired by the other inmates -- including an older
                         prisoner named Red -- for
                         his integrity and unquenchable sense of hope.</p>
-                </div>
+                </div> -->
 
             </li>
         </ul>
@@ -78,9 +84,10 @@
     </footer>
 
 
-
     <script src="https://kit.fontawesome.com/b4134665c5.js" crossorigin="anonymous"></script>
     <script src="JS/genre.js"></script>
+    <script src="JS/scrollGenreTabs.js"></script>
+
     <script defer src="JS/script.js"></script>
 </body>
 
