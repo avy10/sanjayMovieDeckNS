@@ -3,7 +3,7 @@ let prevBTN;
 let nextBTN; 
 let currPage;
 let tPage; 
-
+const navigationAvyDIVVA = document.querySelector(".navigationAvy")
 
 
 const searchBTN = document.getElementById("search-button");
@@ -111,7 +111,7 @@ function renderMovies(movies = []) {
         let genreBTNHTML = "";
         for(let genre of eachMovie.genre_ids){
             const str = `
-            <button id=${genre}>${genres[genre]} </button>
+            <div id=${genre}>${genres[genre]} </div>
             `
             genreBTNHTML += str;
             /* const btn = document.createElement("button");
@@ -183,13 +183,12 @@ function renderMovies(movies = []) {
 
     });
 }
-
-async function fetchMovies(){
-    const moviesListPaginationELEMENT = document.querySelector(".movies-list-pagination")
+function renderNavigation(){
     const doesPaginationExist = document.querySelector("#allPagination");
     console.log("doesPaginationExist", doesPaginationExist);
     if(!doesPaginationExist){
         console.log("AYOOOOOOOOOOO")
+        navigationAvyDIVVA.innerHTML = "";
         const paginationDivva = document.createElement("div");
         paginationDivva.className="pagination";
         paginationDivva.id="allPagination";
@@ -199,13 +198,42 @@ async function fetchMovies(){
             <span id="current-button" class="currentBTN"><span id="currPage">1</span> of <span id="totalPage">1</span></span>
             <button id="next-button" class="nextBTN"><span style='font-size:20px;'>&#11166;</span></button>
         `
-    moviesListPaginationELEMENT.appendChild(paginationDivva);
+        navigationAvyDIVVA.appendChild(paginationDivva)
+    // moviesListPaginationELEMENT.appendChild(paginationDivva);
     }
     
     prevBTN = document.getElementById("prev-button");
     nextBTN = document.getElementById("next-button");
     currPage = document.getElementById("currPage");
     tPage = document.getElementById("totalPage");
+    prevBTN.addEventListener("click", navigatePrevv);
+nextBTN.addEventListener("click", navigateNextt);
+}
+async function fetchMovies(){
+    // const moviesListPaginationELEMENT = document.querySelector(".movies-list-pagination")
+/*     const doesPaginationExist = document.querySelector("#allPagination");
+    console.log("doesPaginationExist", doesPaginationExist);
+    if(!doesPaginationExist){
+        console.log("AYOOOOOOOOOOO")
+        navigationAvyDIVVA.innerHTML = "";
+        const paginationDivva = document.createElement("div");
+        paginationDivva.className="pagination";
+        paginationDivva.id="allPagination";
+
+        paginationDivva.innerHTML = `
+        <button id="prev-button" class="prevBTN" disabled><span style='font-size:20px;'>&#11164;</span></button>
+            <span id="current-button" class="currentBTN"><span id="currPage">1</span> of <span id="totalPage">1</span></span>
+            <button id="next-button" class="nextBTN"><span style='font-size:20px;'>&#11166;</span></button>
+        `
+        navigationAvyDIVVA.appendChild(paginationDivva)
+    // moviesListPaginationELEMENT.appendChild(paginationDivva);
+    }
+    
+    prevBTN = document.getElementById("prev-button");
+    nextBTN = document.getElementById("next-button");
+    currPage = document.getElementById("currPage");
+    tPage = document.getElementById("totalPage"); */
+    renderNavigation()
     try{
         const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=en-US&page=${currentPage}`);
         let data = await response.json();
@@ -232,7 +260,7 @@ fetchMovies();
 // after API call, loop in each movie and create a movie-card, and show the movie card on the webpage
 
 
-    let timeOut;
+let timeOut;
 function checkBUTTONS(){
     if(currentPage >= 2){
         prevBTN.disabled=false;
@@ -322,7 +350,10 @@ nextBTN.addEventListener("click", navigateNextt);
 
 // search funtionality
 function searchMovies(){
-    
+    /*  */
+    renderNavigation()
+
+    /*  */
     const searchQuery = searchQueryBox.value;
     if(previousSearchQuery != searchQuery){
         searchPage = 1;

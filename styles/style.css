@@ -91,7 +91,7 @@ footer {
 
 
 
-.pagination {
+.navigationAvy {
  display: flex;
  justify-content: center;
  align-items: center;
@@ -308,25 +308,27 @@ position: absolute;
     gap: 10px;
     flex-wrap: wrap;
 }
-.genreBTNS button {
+.genreBTNS div {
     /* padding: 10px;
     margin: 5px; */
  display: inline;
+ align-items: center;
+ text-align: center;
+ font-size: 14px;
  width: 80px;
  height: fit-content;
- /* border: none; */
- border: 2px solid aqua;
+ border: none;
+ /* border: 2px solid aqua; */
+     box-shadow: 5px 5px 5px purple;
+
  border-radius: 5px;
  cursor: pointer;
-     transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
+     transition: box-shadow 0.3s ease-in-out;
+         background: transparent;
+
 }
 
-.genreBTNS button:hover{
-    transform: scale(1.05);
-    box-shadow: 3px 3px 3px purple;
-    border : none
-    
-}
-.pagination button{
+
+.navigationAvy button{
     background: transparent;
 }

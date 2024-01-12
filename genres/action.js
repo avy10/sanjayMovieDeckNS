@@ -1,12 +1,14 @@
-
+/* console.log(avyTest());
+avyTest() */
 let actionMoviesList = [];
 // let actionMoviesListEXTRA = [];
 
-let currentActionPages = 0;
+let currentActionPages = 1;
 
 let prevActionBTN;
 let nextActionBTN; 
-
+let currActionPage;
+let totalActionPage;
 
 function makeOtherPagesZero(){
     currentAdventurePages = 0;
@@ -27,30 +29,126 @@ function makeOtherPagesZero(){
     currentWarPages = 0;
     currentWesternPages = 0;
 }
+
+let actionTimeOut;
+function checkActionBUTTONS(){
+    console.log("currentActionPages", currentActionPages)
+    console.log("totalActionPages", totalActionPages)
+    if(currentActionPages >= 2){
+        prevActionBTN.disabled=false;
+    } else {
+        prevActionBTN.disabled = true;
+    }
+    if(currentActionPages >= totalActionPages){
+        nextActionBTN.disabled = true;
+    } else{
+        nextActionBTN.disabled = false;
+        
+    }
+
+}
+
+/* function checkSearchButtons(){
+    if(searchPage >= 2){
+        prevBTN.disabled=false;
+    } else {
+        prevBTN.disabled = true;
+    }
+    console.log(searchPage, totalSearchPage)
+    if(searchPage >= totalSearchPage){
+        console.log("WHY NOt")
+        nextBTN.disabled = true;
+    } else{
+        nextBTN.disabled = false;
+        
+    }
+} */
+
+function navigateActionNextt(){
+    /* if(searchQueryBox.value != ""){
+        searchPage++;
+        
+        searchMovies();
+        
+        currPage.innerHTML = searchPage;
+        
+        nextBTN.disabled = true;
+        prevBTN.disabled = true;
+        clearTimeout(timeOut);
+        timeOut = setTimeout(()=>{
+            checkSearchButtons();
+        }, 800)
+    } else { */
+        currentActionPages++;
+
+        actionMoviesFunction();
+        currActionPage.innerHTML = currentActionPages;
+        nextActionBTN.disabled = true;
+        prevActionBTN.disabled = true;
+        clearTimeout(actionTimeOut);
+        actionTimeOut = setTimeout(()=>{
+            checkActionBUTTONS();
+        }, 800)
+    // }
+    
+}
+
+function navigateActionPrevv(){
+    /* if(searchQueryBox.value != ""){
+        searchPage--;
+        
+        searchMovies();
+
+        currPage.innerHTML = searchPage;
+
+        nextBTN.disabled = true;
+        prevBTN.disabled = true;
+        clearTimeout(timeOut);
+        timeOut = setTimeout(()=>{
+            checkSearchButtons();
+        }, 800)
+    } else{ */
+        currentActionPages--;
+
+        actionMoviesFunction();
+        currActionPage.innerHTML = currentActionPages;
+        nextActionBTN.disabled = true;
+        prevActionBTN.disabled = true;
+        clearTimeout(actionTimeOut);
+        actionTimeOut = setTimeout(()=>{
+            checkActionBUTTONS();
+        }, 800)
+    // }
+    
+}
+
+
 function navigationAction(){
-    const moviesListPaginationELEMENT = document.querySelector(".movies-list-pagination")
+    // const moviesListPaginationELEMENT = document.querySelector(".movies-list-pagination")
     const doesPaginationExist = document.querySelector("#actionPagination");
     // console.log("doesPaginationExist", doesPaginationExist);
     if(!doesPaginationExist){
+        navigationAvyDIVVA.innerHTML = ""
         const paginationDivva = document.createElement("div");
         paginationDivva.className="pagination";
         paginationDivva.id="actionPagination";
         paginationDivva.innerHTML = `
-        <button id="action-prev-button" disabled><span style='font-size:20px;'>&#11164;</span></button>
-            <span id="action-current-button"><span id="currActionPage">1</span> of <span id="totalActionPage">1</span></span>
-            <button id="action-next-button"><span style='font-size:20px;'>&#11166;</span></button>
+        <button id="action-prev-button" class="prevBTN" disabled><span style='font-size:20px;'>&#11164;</span></button>
+            <span id="action-current-button" class="currentBTN"><span id="currActionPage">1</span> of <span id="totalActionPage">1</span></span>
+            <button id="action-next-button" class="nextBTN"><span style='font-size:20px;'>&#11166;</span></button>
         `
-    moviesListPaginationELEMENT.appendChild(paginationDivva);
+    // moviesListPaginationELEMENT.appendChild(paginationDivva);
+    navigationAvyDIVVA.appendChild(paginationDivva);
     }
 
     prevActionBTN = document.getElementById("action-prev-button");;
     nextActionBTN = document.getElementById("action-next-button");; 
 
-    currPage = document.getElementById("currActionPage");
-    tPage = document.getElementById("totalActionPage");
-
-    prevBTN.addEventListener("click", navigateActionPrevv);
-    extBTN.addEventListener("click", navigateActionNextt);
+    currActionPage = document.getElementById("currActionPage");
+    totalActionPage = document.getElementById("totalActionPage");
+    totalActionPage.innerHTML = totalActionPages;
+    prevActionBTN.addEventListener("click", navigateActionPrevv);
+    nextActionBTN.addEventListener("click", navigateActionNextt);
 }
 function actionMoviesFunction(){
     makeOtherPagesZero();
@@ -60,12 +158,12 @@ function actionMoviesFunction(){
     
     actionMoviesList = [];
     for(moviesFrom; moviesFrom <= moviesTill; moviesFrom++){
+        if(action[moviesFrom] == null) {continue}
         actionMoviesList.push(action[moviesFrom]);
     }
     renderMovies(actionMoviesList);
     navigationAction();
 
-    currentActionPages++;
     
 }
 
@@ -88,3 +186,8 @@ let currentTVPages = 0;
 let currentThrillerPages = 0;
 let currentWarPages = 0;
 let currentWesternPages = 0;
+
+/* function avyTest(){
+    console.log("AAAAAAA")
+    return 450;
+} */
