@@ -1,6 +1,6 @@
 let adventureMoviesList = [];
 
-let currentAdventurePages = 1;
+let currentAdventurePages = 0;
 
 let prevAdventureBTN;
 let nextAdventureBTN; 
@@ -98,7 +98,7 @@ function navigationAdventure(){
 function adventureMoviesFunction(){
     makeOtherPagesZero();
     // console.log("hello")
-    let moviesFrom = currentAdventurePages * 20 + 1;
+    let moviesFrom = currentAdventurePages * 20 ;
     let moviesTill = moviesFrom + 19;
     
     adventureMoviesList = [];

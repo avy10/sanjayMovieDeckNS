@@ -3,7 +3,7 @@ avyTest() */
 let actionMoviesList = [];
 // let actionMoviesListEXTRA = [];
 
-let currentActionPages = 1;
+let currentActionPages = 0;
 
 let prevActionBTN;
 let nextActionBTN; 
@@ -152,7 +152,7 @@ function navigationAction(){
 function actionMoviesFunction(){
     makeOtherPagesZero();
     // console.log("hello")
-    let moviesFrom = currentActionPages * 20 + 1;
+    let moviesFrom = currentActionPages * 20 ;
     let moviesTill = moviesFrom + 19;
     
     actionMoviesList = [];

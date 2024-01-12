@@ -1,6 +1,6 @@
 let animationMoviesList = [];
 
-let currentAnimationPages = 1;
+let currentAnimationPages = 0;
 
 let prevAnimationBTN;
 let nextAnimationBTN; 
@@ -98,7 +98,7 @@ function navigationAnimation(){
 function animationMoviesFunction(){
     makeOtherPagesZero();
     // console.log("hello")
-    let moviesFrom = currentAnimationPages * 20 + 1;
+    let moviesFrom = currentAnimationPages * 20 ;
     let moviesTill = moviesFrom + 19;
     
     animationMoviesList = [];

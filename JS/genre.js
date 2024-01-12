@@ -64,6 +64,12 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=167e1d3eb969e80d3b6
         actionGenreBTN.addEventListener("click", actionMoviesFunction)
         adventureGenreBTN.addEventListener("click", adventureMoviesFunction)
         animationGenreBTN.addEventListener("click", animationMoviesFunction)
+        comedyGenreBTN.addEventListener("click", comedyMoviesFunction)
+        crimeGenreBTN.addEventListener("click", crimeMoviesFunction)
+        dramaGenreBTN.addEventListener("click", dramaMoviesFunction);
+        familyGenreBTN.addEventListener("click", familyMoviesFunction)
+        fantasyGenreBTN.addEventListener("click", fantasyMoviesFunction)
+        historyGenreBTN.addEventListener("click", historyMoviesFunction)
 
     
     })
