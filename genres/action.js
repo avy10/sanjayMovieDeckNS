@@ -167,7 +167,7 @@ function actionMoviesFunction(){
 }
 
 
-
+// let currentActionPages = 0;
 // let currentAdventurePages = 0;
 // let currentAnimationPages = 0;
 // let currentComedyPages = 0

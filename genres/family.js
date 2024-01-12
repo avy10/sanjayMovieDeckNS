@@ -11,9 +11,9 @@ function makeOtherPagesZero(){
     currentActionPages = 0;
     currentAdventurePages = 0;
     currentAnimationPages = 0;
+    currentComedyPages = 0
     currentCrimePages = 0;
     currentDramaPages = 0;
-    currentFamilyPages = 0;
     currentFantasyPages = 0;
     currentHistoryPages = 0;
     currentHorrorPages = 0;
