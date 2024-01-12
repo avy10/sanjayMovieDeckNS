@@ -32,8 +32,7 @@ function makeOtherPagesZero(){
 
 let actionTimeOut;
 function checkActionBUTTONS(){
-    console.log("currentActionPages", currentActionPages)
-    console.log("totalActionPages", totalActionPages)
+
     if(currentActionPages >= 2){
         prevActionBTN.disabled=false;
     } else {
@@ -152,7 +151,7 @@ function navigationAction(){
 }
 function actionMoviesFunction(){
     makeOtherPagesZero();
-    console.log("hello")
+    // console.log("hello")
     let moviesFrom = currentActionPages * 20 + 1;
     let moviesTill = moviesFrom + 19;
     
@@ -169,23 +168,23 @@ function actionMoviesFunction(){
 
 
 
-let currentAdventurePages = 0;
-let currentAnimationPages = 0;
-let currentComedyPages = 0
-let currentCrimePages = 0;
-let currentDramaPages = 0;
-let currentFamilyPages = 0;
-let currentFantasyPages = 0;
-let currentHistoryPages = 0;
-let currentHorrorPages = 0;
-let currentMusicPages = 0;
-let currentysteryPages = 0;
-let currentRomancePages = 0;
-let currentSciFiPages = 0;
-let currentTVPages = 0;
-let currentThrillerPages = 0;
-let currentWarPages = 0;
-let currentWesternPages = 0;
+// let currentAdventurePages = 0;
+// let currentAnimationPages = 0;
+// let currentComedyPages = 0
+// let currentCrimePages = 0;
+// let currentDramaPages = 0;
+// let currentFamilyPages = 0;
+// let currentFantasyPages = 0;
+// let currentHistoryPages = 0;
+// let currentHorrorPages = 0;
+// let currentMusicPages = 0;
+// let currentysteryPages = 0;
+// let currentRomancePages = 0;
+// let currentSciFiPages = 0;
+// let currentTVPages = 0;
+// let currentThrillerPages = 0;
+// let currentWarPages = 0;
+// let currentWesternPages = 0;
 
 /* function avyTest(){
     console.log("AAAAAAA")

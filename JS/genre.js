@@ -62,6 +62,7 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=167e1d3eb969e80d3b6
         genreButtons = document.querySelectorAll(".buttonsDisabled");
 
         actionGenreBTN.addEventListener("click", actionMoviesFunction)
+        adventureGenreBTN.addEventListener("click", adventureMoviesFunction)
 
     
     })
