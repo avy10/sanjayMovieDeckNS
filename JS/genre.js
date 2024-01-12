@@ -20,7 +20,11 @@ let tvMovieGenreBTN
 let thrillerGenreBTN
 let warGenreBTN 
 let westernGenreBTN
-fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=024c2acdba0f8d056b15281072c1a833`)
+
+let genreButtons;
+
+
+fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=167e1d3eb969e80d3b6128230a5e19dd`)
     .then(response => response.json())
     .then(data => {
         console.log("GENRES", data);
@@ -30,6 +34,8 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=024c2acdba0f8d056b1
             if(data.genres[i].id == 99) continue;
             newButton.id = data.genres[i].id;
             newButton.textContent = data.genres[i].name;
+            newButton.setAttribute("disabled", "true")
+            newButton.classList.add("buttonsDisabled")
             tabsDIVVA.appendChild(newButton);
             genreIDARRAY[`${data.genres[i].id}`]=data.genres[i].name.replaceAll(" ", "-").toLowerCase();
         }
@@ -53,8 +59,10 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=024c2acdba0f8d056b1
         westernGenreBTN = document.getElementById("37");
         localStorage.setItem("genreID", JSON.stringify(genreIDARRAY))
 
-        actionGenreBTN.addEventListener("click", whaet)
-                
+        genreButtons = document.querySelectorAll(".buttonsDisabled");
+
+        actionGenreBTN.addEventListener("click", actionMoviesFunction)
+
     
     })
 

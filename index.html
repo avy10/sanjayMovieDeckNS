@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/genreTabs.css">
     <link rel="stylesheet" href="styles/headerStyle.css">
+    <link rel="stylesheet" href="styles/buttonDisabled.css">
 </head>
 
 <body>
@@ -27,8 +28,8 @@
         <div class="tabs-container">
             <button class="scroll-button" id="scroll-left">&#11164;</button>
             <div class="tabs">
-                <button id="all-tab" class="active-tab">All</button>
-                <button id="favorits-tab">Favorites</button>
+                <button id="all-tab" class="active-tab buttonsEnabled">All</button>
+                <button id="favorits-tab" class="buttonsEnabled">Favorites</button>
                 <!--         <button id="dev-tab">Dev Recommended</button>
              -->
             </div>
@@ -88,10 +89,11 @@
 
     <script src="https://kit.fontawesome.com/b4134665c5.js" crossorigin="anonymous"></script>
     <script src="genres/totalMovies.js"></script>
-    <script src="JS/genre.js"></script>
-    <script src="JS/script.js"></script>
+    <script defer src="JS/genre.js"></script>
+    <script defer src="JS/script.js"></script>
 
     <script src="JS/scrollGenreTabs.js"></script>
+    <!-- <script defer src="genres/fetchAndAssignGenre.js"></script> -->
     <script defer src="genres/action.js"></script>
     <script defer src="genres/adventure.js"></script>
     <script defer src="genres/animation.js"></script>
@@ -110,6 +112,27 @@
     <script defer src="genres/tvMovie.js"></script>
     <script defer src="genres/war.js"></script>
     <script defer src="genres/western.js"></script>
+
+
+    <!-- <script async src="genreDATA/fetchAndAssignGenre.js"></script> -->
+    <script async src="genreDATA/action.js"></script>
+    <script async src="genreDATA/adventure.js"></script>
+    <script async src="genreDATA/animation.js"></script>
+    <script async src="genreDATA/comedy.js"></script>
+    <script async src="genreDATA/crime.js"></script>
+    <script async src="genreDATA/drama.js"></script>
+    <script async src="genreDATA/family.js"></script>
+    <script async src="genreDATA/fantasy.js"></script>
+    <script async src="genreDATA/history.js"></script>
+    <script async src="genreDATA/horror.js"></script>
+    <script async src="genreDATA/music.js"></script>
+    <script async src="genreDATA/mystery.js"></script>
+    <script async src="genreDATA/romance.js"></script>
+    <script async src="genreDATA/scienceFiction.js"></script>
+    <script async src="genreDATA/thriller.js"></script>
+    <script async src="genreDATA/tvMovie.js"></script>
+    <script async src="genreDATA/war.js"></script>
+    <script async src="genreDATA/western.js"></script>
 </body>
 
 </html>

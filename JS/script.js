@@ -1,8 +1,8 @@
 
-const prevBTN = document.getElementById("prev-button");
-const nextBTN = document.getElementById("next-button");
-const currPage = document.getElementById("currPage");
-const tPage = document.getElementById("totalPage");
+let prevBTN;
+let nextBTN; 
+let currPage;
+let tPage; 
 
 
 
@@ -119,12 +119,12 @@ function renderMovies(movies = []) {
             btn.id=genre;
             btn.textContent=genres.genre;
             genreBTNARRAY.push(btn) */
-         }
+            }
         // console.log(genreBTNARRAY)
         
 
         let html = `
-         
+            
             <div class="imgContainer">
                 <img class="poster" src=${imageURL} alt= ${title}/>
             </div>
@@ -156,7 +156,7 @@ function renderMovies(movies = []) {
         //  listItem.style.background = `rgba(0, 0, 0, 0.2) url('${imageURL}') no-repeat center center`;
         //  listItem.style.backgroundSize = "100% 100%"
         
-
+        
         const favIconBTN = listItem.querySelector(".fav-icon");
         favIconBTN.addEventListener("click", (event)=>{
             // console.log(event.target);
@@ -185,6 +185,24 @@ function renderMovies(movies = []) {
 }
 
 async function fetchMovies(){
+    const moviesListPaginationELEMENT = document.querySelector(".movies-list-pagination")
+    const doesPaginationExist = document.querySelector(".pagination");
+    console.log("doesPaginationExist", doesPaginationExist);
+    if(!doesPaginationExist){
+        const paginationDivva = document.createElement("div");
+        paginationDivva.className="pagination";
+        paginationDivva.innerHTML = `
+        <button id="prev-button" disabled><span style='font-size:20px;'>&#11164;</span></button>
+            <span id="current-button"><span id="currPage">1</span> of <span id="totalPage">1</span></span>
+            <button id="next-button"><span style='font-size:20px;'>&#11166;</span></button>
+        `
+    moviesListPaginationELEMENT.appendChild(paginationDivva);
+    }
+    
+    prevBTN = document.getElementById("prev-button");
+    nextBTN = document.getElementById("next-button");
+    currPage = document.getElementById("currPage");
+    tPage = document.getElementById("totalPage");
     try{
         const response = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIKEY}&language=en-US&page=${currentPage}`);
         let data = await response.json();
