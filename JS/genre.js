@@ -63,6 +63,7 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=167e1d3eb969e80d3b6
 
         actionGenreBTN.addEventListener("click", actionMoviesFunction)
         adventureGenreBTN.addEventListener("click", adventureMoviesFunction)
+        animationGenreBTN.addEventListener("click", animationMoviesFunction)
 
     
     })
