@@ -1,0 +1,124 @@
+.tabs-container {
+    display: flex;
+gap: 10px;
+    margin: 0 auto;
+
+        max-width: 1540px;
+
+}
+
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+
+    gap: 10px;
+    /* margin-left: 100px;
+    margin-right: 100px; */
+    overflow-x: scroll;
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent;
+ 
+}
+.scroll-button {
+
+
+    display: block;
+    height: fit-content;
+
+    padding: 11px;
+    margin: 5px;
+    border: 1px solid aqua;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
+    background: transparent;
+}
+
+.scroll-button:hover {
+    transform: scale(1.075);
+    box-shadow: 6px 6px 6px purple;
+    border: none;
+}
+
+.tabs::-webkit-scrollbar {
+    width: 5px;
+}
+.tabs::-webkit-scrollbar-track {
+    background: transparent;
+}
+.tabs::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+.tabs:hover::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+
+.tabs button {
+    padding: 10px;
+    margin: 5px;
+
+    display: block;
+    width: 120px;
+    height: fit-content;
+    /* border: none; */
+    border: 1px solid aqua;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
+    background: transparent;
+}
+.tabs button:hover{
+    transform: scale(1.075);
+    box-shadow: 6px 6px 6px purple;
+    border : none
+    
+}
+
+.active-tab {
+    background-color: rgb(102, 12, 102);
+    color: white;
+    border: 8px solid transparent;
+    border-radius: 5px;
+    animation: borderAnimation 15s linear infinite;
+}
+
+
+
+
+@keyframes borderAnimation {
+     /* bottom1 */
+    0% {
+        
+        border-width: 3px;
+        border-color: aqua purple aqua purple;
+    }
+    /* left */
+    25% { 
+                border-width: 3px;
+
+        border-color: purple aqua purple aqua;
+    }
+    /* top */
+    50% {
+                border-width: 3px;
+
+        border-color: aqua purple aqua purple;
+    }
+    /* right */
+    75% {
+                border-width: 3px;
+
+        border-color: purple aqua purple aqua;
+    }
+    /* bottom 2*/
+    100% {
+                border-width: 3px;
+
+        border-color: aqua purple aqua purple;
+    }
+}

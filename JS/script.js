@@ -98,12 +98,16 @@ function renderMovies(movies = []) {
             vote_count,
             poster_path,
         };
-        console.log("MOPVIE INFOE", movieInfo);
+        // console.log("MOPVIE INFOE", movieInfo);
 
         const ifFav = favMoviesMAPPING[movieInfo.title];
 
         // adding genre buttons
         const genres = JSON.parse(localStorage.getItem("genreID"));
+        if(genres == null){
+            console.log("I AM RELOADING")
+            location.reload();
+        }
         let genreBTNHTML = "";
         for(let genre of eachMovie.genre_ids){
             const str = `
