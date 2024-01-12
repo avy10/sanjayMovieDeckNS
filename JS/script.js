@@ -186,15 +186,18 @@ function renderMovies(movies = []) {
 
 async function fetchMovies(){
     const moviesListPaginationELEMENT = document.querySelector(".movies-list-pagination")
-    const doesPaginationExist = document.querySelector(".pagination");
+    const doesPaginationExist = document.querySelector("#allPagination");
     console.log("doesPaginationExist", doesPaginationExist);
     if(!doesPaginationExist){
+        console.log("AYOOOOOOOOOOO")
         const paginationDivva = document.createElement("div");
         paginationDivva.className="pagination";
+        paginationDivva.id="allPagination";
+
         paginationDivva.innerHTML = `
-        <button id="prev-button" disabled><span style='font-size:20px;'>&#11164;</span></button>
-            <span id="current-button"><span id="currPage">1</span> of <span id="totalPage">1</span></span>
-            <button id="next-button"><span style='font-size:20px;'>&#11166;</span></button>
+        <button id="prev-button" class="prevBTN" disabled><span style='font-size:20px;'>&#11164;</span></button>
+            <span id="current-button" class="currentBTN"><span id="currPage">1</span> of <span id="totalPage">1</span></span>
+            <button id="next-button" class="nextBTN"><span style='font-size:20px;'>&#11166;</span></button>
         `
     moviesListPaginationELEMENT.appendChild(paginationDivva);
     }
@@ -274,7 +277,7 @@ function navigateNextt(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkSearchButtons();
-        }, 1500)
+        }, 800)
     } else {
         currentPage++;
         fetchMovies();
@@ -284,7 +287,7 @@ function navigateNextt(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkBUTTONS();
-        }, 1500)
+        }, 800)
     }
     
 }
@@ -302,7 +305,7 @@ function navigatePrevv(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkSearchButtons();
-        }, 1500)
+        }, 800)
     } else{
         currentPage--;
         fetchMovies();
@@ -310,7 +313,7 @@ function navigatePrevv(){
         clearTimeout(timeOut);
         timeOut = setTimeout(()=>{
             checkBUTTONS();
-        }, 1500)
+        }, 800)
     }
     
 }

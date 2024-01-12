@@ -100,9 +100,9 @@ footer {
 }
 
 
-#prev-button,
-#current-button,
-#next-button {
+.prevBTN,
+.currentBTN,
+.nextBTN{
  border: none;
  border-radius: 5px;
  padding: 5px 5px;
