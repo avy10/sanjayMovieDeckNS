@@ -1,3 +1,148 @@
+// live html collection of buttons present inside div.tabs-container. IT is needed to toggle the 
+let tabsContainer = document.getElementsByClassName("active-tab");
+// inserting genre.js here
+/* creating genre buttons */
+/* this JS file renders all the genres which you can click and sort movies according to genre */
+
+    // <div class="tabs">
+const tabsDIVVA = document.querySelector(".tabs");
+let actionGenreBTN 
+let adventureGenreBTN
+let animationGenreBTN
+let comedyGenreBTN 
+let crimeGenreBTN 
+let dramaGenreBTN 
+let familyGenreBTN 
+let fantasyGenreBTN
+let historyGenreBTN
+let horrorGenreBTN 
+let musicGenreBTN 
+let mysteryGenreBTN
+let romanceGenreBTN
+let sciFiGenreBTN 
+let tvMovieGenreBTN
+let thrillerGenreBTN
+let warGenreBTN 
+let westernGenreBTN
+
+let genreButtons;
+
+const data = [
+    {
+        "id": 28,
+        "name": "Action"
+    },
+    {
+        "id": 12,
+        "name": "Adventure"
+    },
+    {
+        "id": 16,
+        "name": "Animation"
+    },
+    {
+        "id": 35,
+        "name": "Comedy"
+    },
+    {
+        "id": 80,
+        "name": "Crime"
+    },
+    {
+        "id": 99,
+        "name": "Documentary"
+    },
+    {
+        "id": 18,
+        "name": "Drama"
+    },
+    {
+        "id": 10751,
+        "name": "Family"
+    },
+    {
+        "id": 14,
+        "name": "Fantasy"
+    },
+    {
+        "id": 36,
+        "name": "History"
+    },
+    {
+        "id": 27,
+        "name": "Horror"
+    },
+    {
+        "id": 10402,
+        "name": "Music"
+    },
+    {
+        "id": 9648,
+        "name": "Mystery"
+    },
+    {
+        "id": 10749,
+        "name": "Romance"
+    },
+    {
+        "id": 878,
+        "name": "Science Fiction"
+    },
+    {
+        "id": 10770,
+        "name": "TV Movie"
+    },
+    {
+        "id": 53,
+        "name": "Thriller"
+    },
+    {
+        "id": 10752,
+        "name": "War"
+    },
+    {
+        "id": 37,
+        "name": "Western"
+    }
+];
+
+
+        const genreIDARRAY ={};
+        for(let i = 0; i < data.length; i++){
+            const newButton = document.createElement("button");
+            if(data[i].id == 99) continue;
+            newButton.id = data[i].id;
+            newButton.textContent = data[i].name;
+            newButton.setAttribute("disabled", "true")
+            newButton.classList.add("buttonsDisabled")
+            tabsDIVVA.appendChild(newButton);
+            genreIDARRAY[`${data[i].id}`]=data[i].name.replaceAll(" ", "-").toLowerCase();
+        }
+        actionGenreBTN = document.getElementById("28");
+        adventureGenreBTN = document.getElementById("12");
+        animationGenreBTN = document.getElementById("16");
+        comedyGenreBTN = document.getElementById("35");
+        crimeGenreBTN = document.getElementById("80");
+        dramaGenreBTN = document.getElementById("18");
+        familyGenreBTN = document.getElementById("10751");
+        fantasyGenreBTN = document.getElementById("14");
+        historyGenreBTN = document.getElementById("36");
+        horrorGenreBTN = document.getElementById("27");
+        musicGenreBTN = document.getElementById("10402");
+        mysteryGenreBTN = document.getElementById("9648");
+        romanceGenreBTN = document.getElementById("10749");
+        sciFiGenreBTN = document.getElementById("878");
+        tvMovieGenreBTN = document.getElementById("10770");
+        thrillerGenreBTN = document.getElementById("53");
+        warGenreBTN = document.getElementById("10752");
+        westernGenreBTN = document.getElementById("37");
+        localStorage.setItem("genreID", JSON.stringify(genreIDARRAY))
+
+        genreButtons = document.querySelectorAll(".buttonsDisabled");
+
+/*  */
+
+
 
 let prevBTN;
 let nextBTN; 
@@ -9,7 +154,7 @@ const navigationAvyDIVVA = document.querySelector(".navigationAvy")
 const searchBTN = document.getElementById("search-button");
 const searchQueryBox = document.getElementById("search-input");
 // https://api.themoviedb.org/3/movie/top_rated?api_key=024c2acdba0f8d056b15281072c1a833&language=en-US&page=1
-const APIKEY = `024c2acdba0f8d056b15281072c1a833`; // this is my own API key
+const APIKEY = `0c48a29cf119e5087241f270b7c87de8`; // this is my own API key
 // https://api.themoviedb.org/3/movie/top_rated?api_key=024c2acdba0f8d056b15281072c1a833&language=en-US&page=1
 let currentPage = 1;
 let totaPages = 1;
@@ -103,11 +248,33 @@ function renderMovies(movies = []) {
         const ifFav = favMoviesMAPPING[movieInfo.title];
 
         // adding genre buttons
-        const genres = JSON.parse(localStorage.getItem("genreID"));
-        if(genres == null){
+        let genres = JSON.parse(localStorage.getItem("genreID"));
+        /* if(genres == null){
             console.log("I AM RELOADING")
-            location.reload();
-        }
+            // location.reload();
+            genres = {
+                "12": "adventure",
+                "14": "fantasy",
+                "16": "animation",
+                "18": "drama",
+                "27": "horror",
+                "28": "action",
+                "35": "comedy",
+                "36": "history",
+                "37": "western",
+                "53": "thriller",
+                "80": "crime",
+                "878": "science-fiction",
+                "9648": "mystery",
+                "10402": "music",
+                "10749": "romance",
+                "10751": "family",
+                "10752": "war",
+                "10770": "tv-movie"
+            }
+                    localStorage.setItem("genreID", JSON.stringify(genres))
+
+        } */
         let genreBTNHTML = "";
         for(let genre of eachMovie.genre_ids){
             const str = `
@@ -185,9 +352,9 @@ function renderMovies(movies = []) {
 }
 function renderNavigation(){
     const doesPaginationExist = document.querySelector("#allPagination");
-    console.log("doesPaginationExist", doesPaginationExist);
+    // console.log("doesPaginationExist", doesPaginationExist);
     if(!doesPaginationExist){
-        console.log("AYOOOOOOOOOOO")
+        // console.log("AYOOOOOOOOOOO")
         navigationAvyDIVVA.innerHTML = "";
         const paginationDivva = document.createElement("div");
         paginationDivva.className="pagination";

@@ -5,6 +5,7 @@
  padding: 0;
  margin: 0;
  font-family: "Poppins", sans-serif;
+ box-sizing: border-box;
 }
 
 /* body{
@@ -112,19 +113,20 @@ footer {
 
 
 .card {
- width: 15vw;
- height: 380px;
- border: 1px solid #333;
- margin: 10px;
- border-radius: 5px;
- list-style-type: none;
- /*  */
- position: relative;
- overflow: hidden;
- display: flex;
- flex-direction: column;
-     transition: box-shadow 0.5s ease, width 0.3s ease; /* Added width transition */
-z-index: 2;
+  width: 15vw;
+  height: 450px;
+  /* border: 1px solid #333; */
+  margin: 10px;
+  border-radius: 10px;
+  list-style-type: none;
+  /*  */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* transition: box-shadow 0.5s ease, width 0.3s ease;  */
+  /* Added width transition */
+  z-index: 2;
 
 /*  background: linear-gradient(
     315deg,
@@ -161,50 +163,78 @@ z-index: 2;
 .card:hover{
     width: 500px; 
     transition: width 0.7s ease;
-    box-shadow: 8px 8px 8px rgb(65, 231, 231);
+    box-shadow: 12px 12px 12px rgb(65, 231, 231);
     z-index: 3;
+    animation: cardShadow 10s ease-in-out infinite;
 }
 
+@keyframes cardShadow {
+  
+  0%{
+    box-shadow: 12px 12px 12px rgb(65, 231, 231);
+  }
+  25%{
+    box-shadow: 12px 12px 12px rgb(185, 27, 175);
+  }
+  50%{
+    box-shadow: 12px 12px 12px rgb(74, 153, 233);
+  }
+  75%{
+    box-shadow: 12px 12px 12px rgb(230, 72, 72);
+  }
+  75%{
+    box-shadow: 12px 12px 12px rgb(64, 233, 222);
+  }
+  
+}
 .imgContainer{
     position: absolute;
     top: 0;
-    height: 270px;
-    width: 15vw;
+    width: 100%;
+    height: 73%;
+    border-radius: 10px;
+    width: fit-content;
     z-index: inherit;
 }
 .poster {
- width: 100%;
- height: 100%;
+    /* width: 100%; */
+    height: 99%;
+    width: 128%;
+        border-radius: 10px 10px 0px 0px;
+
+ /* height: 102%; */
  /* scale: 0.8; */
  
- object-fit: cover;
+ /* object-fit: fill; */
      z-index: inherit;
-     /* opacity: 0.2; */
+     /* opacity: 0.9; */
 
 }
 
 .fullDetails{
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 28%;
-    padding: 2px;
+    top: 72%;
+    width: 96.5%;
+    height: 27%;
+    padding: 6px;
+    border-radius: 0px 0px 10px 10px ;
+
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.103);
-    transition: height 0.3s ease;
+    transition: height 0.5s ease;
         z-index: inherit;
 
 }
 .extraInfo {
     position: absolute;
     padding: 10px 30px 10px 20px;
-    bottom: 0;
+    top: 72%;
     right: -100%; /* Initially off-screen to the right */
-    width: 38%; /* Adjust the width as needed */
+    width: 100%; /* Adjust the width as needed */
     height: 100%;
     background-color:  #141414a2;
     z-index: inherit; /* Set a higher z-index to appear on top */
-    transition: transform 0.3s ease; /* Smooth transition for appearance */
+    transition: transform 0.7s ease; /* Smooth transition for appearance */
         z-index: inherit;
     text-align: justify;
 }
@@ -221,10 +251,12 @@ z-index: 2;
 .card:hover .fullDetails{
 position: absolute;
     top: 0;
-    width: 42%; /* Adjust the width as needed */
-    height: 100%;
+    width: 44.5%; /* Adjust the width as needed */
+    height: 72%;
     right: 0;
         z-index: inherit;
+            border-radius: 0px ;
+
 
 }
 
@@ -235,8 +267,8 @@ position: absolute;
 .card:hover .extraInfo {
     bottom : 0;
     left: 0; /* Move the extraInfo div into view on hover */
-    height: 30%;
-    width: 92%;
+    height: 28%;
+    width: 100%;
     font-size: 16px;
     font-family: consolas;
     overflow: scroll;
@@ -246,7 +278,10 @@ position: absolute;
 
 }
 
+.card:hover .poster{
+  border-radius: 10px 0px 0px 0px;
 
+}
 
 
 .title {

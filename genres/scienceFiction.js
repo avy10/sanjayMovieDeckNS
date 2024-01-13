@@ -1,30 +1,33 @@
 let sciFiMoviesList = [];
 
-let currentSciFiPages = 0;
+let currentSciFiPages = 1;
 
 let prevSciFiBTN;
 let nextSciFiBTN; 
 let currSciFiPage;
 let totalSciFiPage;
 
-function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentAnimationPages = 0;
-    currentComedyPages = 0
-    currentCrimePages = 0;
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentFantasyPages = 0;
-    currentHistoryPages = 0;
-    currentHorrorPages = 0;
-    currentMusicPages = 0;
-    currentysteryPages = 0;
-    currentRomancePages = 0;
-    currentTVPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+function makeOtherPagesZeroSciFi(){
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentCrimePages = 1;
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentFantasyPages = 1;
+    currentHistoryPages = 1;
+    currentHorrorPages = 1;
+    currentMusicPages = 1;
+    currentysteryPages = 1;
+    currentRomancePages = 1;
+    currentTVPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+
+    tabsContainer[0].classList.remove("active-tab"); 
+    sciFiGenreBTN.classList.add("active-tab"); 
 }
 
 let sciFiTimeOut;
@@ -96,15 +99,15 @@ function navigationSciFi(){
 }
 
 function sciFiMoviesFunction(){
-    makeOtherPagesZero();
+    makeOtherPagesZeroSciFi();
     // console.log("hello")
-    let moviesFrom = currentSciFiPages * 20 ;
+    let moviesFrom = (currentSciFiPages - 1)* 20 ;
     let moviesTill = moviesFrom + 19;
     
     sciFiMoviesList = [];
     for(moviesFrom; moviesFrom <= moviesTill; moviesFrom++){
-        if(sciFi[moviesFrom] == null) {continue}
-        sciFiMoviesList.push(sciFi[moviesFrom]);
+        if(scienceFiction[moviesFrom] == null) {continue}
+        sciFiMoviesList.push(scienceFiction[moviesFrom]);
     }
     renderMovies(sciFiMoviesList);
     navigationSciFi();

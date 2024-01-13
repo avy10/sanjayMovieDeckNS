@@ -95,35 +95,32 @@ gap: 10px;
 
 
 
+
 @keyframes borderAnimation {
-     /* bottom1 */
     0% {
         
-        border-width: 3px;
+        border-width: 4px;
         border-color: aqua purple aqua purple;
     }
-    /* left */
     25% { 
-                border-width: 3px;
+                border-width: 4px;
 
         border-color: purple aqua purple aqua;
     }
-    /* top */
     50% {
-                border-width: 3px;
+                border-width: 4px;
 
         border-color: aqua purple aqua purple;
     }
-    /* right */
     75% {
-                border-width: 3px;
+                border-width: 4px;
 
         border-color: purple aqua purple aqua;
     }
-    /* bottom 2*/
     100% {
-                border-width: 3px;
+                border-width: 4px;
 
         border-color: aqua purple aqua purple;
     }
 }
+

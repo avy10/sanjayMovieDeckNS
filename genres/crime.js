@@ -1,29 +1,32 @@
 let crimeMoviesList = [];
 
-let currentCrimePages = 0;
+let currentCrimePages = 1;
 
 let prevCrimeBTN;
 let nextCrimeBTN; 
 let currCrimePage;
 let totalCrimePage;
 
-function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentComedyPages = 0
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentFantasyPages = 0;
-    currentHistoryPages = 0;
-    currentHorrorPages = 0;
-    currentMusicPages = 0;
-    currentysteryPages = 0;
-    currentRomancePages = 0;
-    currentSciFiPages = 0;
-    currentTVPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+function makeOtherPagesZeroCrime(){
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentFantasyPages = 1;
+    currentHistoryPages = 1;
+    currentHorrorPages = 1;
+    currentMusicPages = 1;
+    currentysteryPages = 1;
+    currentRomancePages = 1;
+    currentSciFiPages = 1;
+    currentTVPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+    tabsContainer[0].classList.remove("active-tab"); 
+    crimeGenreBTN.classList.add("active-tab"); 
 }
 
 let crimeTimeOut;
@@ -94,8 +97,8 @@ function navigationCrime(){
 }
 
 function crimeMoviesFunction(){
-    makeOtherPagesZero();
-    let moviesFrom = currentCrimePages * 20 ;
+    makeOtherPagesZeroCrime();
+    let moviesFrom = (currentCrimePages-1) * 20 ;
     let moviesTill = moviesFrom + 19;
     
     crimeMoviesList = [];

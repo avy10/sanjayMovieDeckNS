@@ -1,30 +1,33 @@
 let historyMoviesList = [];
 
-let currentHistoryPages = 0;
+let currentHistoryPages = 1;
 
 let prevHistoryBTN;
 let nextHistoryBTN; 
 let currHistoryPage;
 let totalHistoryPage;
 
-function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentAnimationPages = 0;
-    currentComedyPages = 0
-    currentCrimePages = 0;
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentFantasyPages = 0;
-    currentHorrorPages = 0;
-    currentMusicPages = 0;
-    currentysteryPages = 0;
-    currentRomancePages = 0;
-    currentSciFiPages = 0;
-    currentTVPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+function makeOtherPagesZeroHistory(){
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentCrimePages = 1;
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentFantasyPages = 1;
+    currentHorrorPages = 1;
+    currentMusicPages = 1;
+    currentysteryPages = 1;
+    currentRomancePages = 1;
+    currentSciFiPages = 1;
+    currentTVPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+
+    tabsContainer[0].classList.remove("active-tab"); 
+    historyGenreBTN.classList.add("active-tab"); 
 }
 
 let historyTimeOut;
@@ -95,8 +98,8 @@ function navigationHistory(){
 }
 
 function historyMoviesFunction(){
-    makeOtherPagesZero();
-    let moviesFrom = currentHistoryPages * 20;
+    makeOtherPagesZeroHistory();
+    let moviesFrom = (currentHistoryPages - 1) * 20;
     let moviesTill = moviesFrom + 19;
     
     historyMoviesList = [];

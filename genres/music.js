@@ -1,30 +1,33 @@
 let musicMoviesList = [];
 
-let currentMusicPages = 0;
+let currentMusicPages = 1;
 
 let prevMusicBTN;
 let nextMusicBTN; 
 let currMusicPage;
 let totalMusicPage;
 
-function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentAnimationPages = 0;
-    currentComedyPages = 0
-    currentCrimePages = 0;
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentFantasyPages = 0;
-    currentHistoryPages = 0;
-    currentHorrorPages = 0;
-    currentysteryPages = 0;
-    currentRomancePages = 0;
-    currentSciFiPages = 0;
-    currentTVPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+function makeOtherPagesZeroMusic(){
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentCrimePages = 1;
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentFantasyPages = 1;
+    currentHistoryPages = 1;
+    currentHorrorPages = 1;
+    currentysteryPages = 1;
+    currentRomancePages = 1;
+    currentSciFiPages = 1;
+    currentTVPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+
+    tabsContainer[0].classList.remove("active-tab"); 
+    musicGenreBTN.classList.add("active-tab"); 
 }
 
 let musicTimeOut;
@@ -94,8 +97,8 @@ function navigationMusic(){
 }
 
 function musicMoviesFunction(){
-    makeOtherPagesZero();
-    let moviesFrom = currentMusicPages * 20;
+    makeOtherPagesZeroMusic();
+    let moviesFrom = (currentMusicPages - 1) * 20;
     let moviesTill = moviesFrom + 19;
 
     musicMoviesList = [];

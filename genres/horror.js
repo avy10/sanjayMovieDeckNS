@@ -1,30 +1,33 @@
 let horrorMoviesList = [];
 
-let currentHorrorPages = 0;
+let currentHorrorPages = 1;
 
 let prevHorrorBTN;
 let nextHorrorBTN; 
 let currHorrorPage;
 let totalHorrorPage;
 
-function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentAnimationPages = 0;
-    currentComedyPages = 0
-    currentCrimePages = 0;
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentFantasyPages = 0;
-    currentHistoryPages = 0;
-    currentMusicPages = 0;
-    currentysteryPages = 0;
-    currentRomancePages = 0;
-    currentSciFiPages = 0;
-    currentTVPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+function makeOtherPagesZeroHorror(){
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentCrimePages = 1;
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentFantasyPages = 1;
+    currentHorrorPages = 1;
+    currentMusicPages = 1;
+    currentysteryPages = 1;
+    currentRomancePages = 1;
+    currentSciFiPages = 1;
+    currentTVPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+
+    tabsContainer[0].classList.remove("active-tab"); 
+    horrorGenreBTN.classList.add("active-tab"); 
 }
 
 let horrorTimeOut;
@@ -95,8 +98,8 @@ function navigationHorror(){
 }
 
 function horrorMoviesFunction(){
-    makeOtherPagesZero();
-    let moviesFrom = currentHorrorPages * 20;
+    makeOtherPagesZeroHorror();
+    let moviesFrom = (currentHorrorPages - 1) * 20;
     let moviesTill = moviesFrom + 19;
     
     horrorMoviesList = [];

@@ -1,0 +1,51 @@
+
+
+@media only screen and (max-width: 1600px) {
+    
+  .card {
+  width: 15vw;
+  height: 380px;
+  }
+
+  .card:hover{
+      width: 26vw; 
+  }
+
+  #movies-list {
+    max-width: 1250px;
+  }
+  .card:hover .extraInfo {
+    font-size: 14px;
+    width: 86%;
+    height: 26%;
+  }
+  .genreBTNS div {
+    font-size: 12px;
+ width: 70px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+    
+  .card {
+  width: 15vw;
+  height: 380px;
+  }
+
+  .card:hover{
+      width: 27vw; 
+  }
+
+  #movies-list {
+    max-width: 1050px;
+  }
+  .card:hover .extraInfo {
+    font-size: 14px;
+    width: 86%;
+    height: 26%;
+  }
+  .genreBTNS div {
+    font-size: 12px;
+ width: 70px;
+  }
+}

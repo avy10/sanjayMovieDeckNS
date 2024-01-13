@@ -1,30 +1,33 @@
 let mysteryMoviesList = [];
 
-let currentMysteryPages = 0;
+let currentMysteryPages = 1;
 
 let prevMysteryBTN;
 let nextMysteryBTN; 
 let currMysteryPage;
 let totalMysteryPage;
 
-function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentAnimationPages = 0;
-    currentComedyPages = 0
-    currentCrimePages = 0;
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentFantasyPages = 0;
-    currentHistoryPages = 0;
-    currentHorrorPages = 0;
-    currentMusicPages = 0;
-    currentRomancePages = 0;
-    currentSciFiPages = 0;
-    currentTVPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+function makeOtherPagesZeroMystery(){
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentCrimePages = 1;
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentFantasyPages = 1;
+    currentHistoryPages = 1;
+    currentHorrorPages = 1;
+    currentMusicPages = 1;
+    currentRomancePages = 1;
+    currentSciFiPages = 1;
+    currentTVPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+
+    tabsContainer[0].classList.remove("active-tab"); 
+    mysteryGenreBTN.classList.add("active-tab"); 
 }
 
 let mysteryTimeOut;
@@ -94,8 +97,8 @@ function navigationMystery(){
 }
 
 function mysteryMoviesFunction(){
-    makeOtherPagesZero();
-    let moviesFrom = currentMysteryPages * 20;
+    makeOtherPagesZeroMystery();
+    let moviesFrom = (currentMysteryPages - 1) * 20;
     let moviesTill = moviesFrom + 19;
     
     mysteryMoviesList = [];

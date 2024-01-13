@@ -1,6 +1,6 @@
 let tvMovieMoviesList = [];
 
-let currentTVMoviePages = 0;
+let currentTVMoviePages = 1;
 
 let prevTVMovieBTN;
 let nextTVMovieBTN; 
@@ -8,27 +8,29 @@ let currTVMoviePage;
 let totalTVMoviePage;
 
 function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentAnimationPages = 0;
-    currentComedyPages = 0
-    currentCrimePages = 0;
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentFantasyPages = 0;
-    currentHistoryPages = 0;
-    currentHorrorPages = 0;
-    currentMusicPages = 0;
-    currentysteryPages = 0;
-    currentRomancePages = 0;
-    currentSciFiPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentCrimePages = 1;
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentFantasyPages = 1;
+    currentHistoryPages = 1;
+    currentHorrorPages = 1;
+    currentMusicPages = 1;
+    currentysteryPages = 1;
+    currentRomancePages = 1;
+    currentSciFiPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+    tabsContainer[0].classList.remove("active-tab"); 
+    tvMovieGenreBTN.classList.add("active-tab"); 
 }
 
 let tvMovieTimeOut;
-function checkTVMovieBUTTONS(){
+function checkTVMovieBUTTONSTvMovie(){
 
     if(currentTVMoviePages >= 2){
         prevTVMovieBTN.disabled = false;
@@ -51,7 +53,7 @@ function navigateTVMovieNextt(){
         prevTVMovieBTN.disabled = true;
         clearTimeout(tvMovieTimeOut);
         tvMovieTimeOut = setTimeout(()=>{
-            checkTVMovieBUTTONS();
+            checkTVMovieBUTTONSTvMovie();
         }, 800);
 }
 
@@ -64,7 +66,7 @@ function navigateTVMoviePrevv(){
         prevTVMovieBTN.disabled = true;
         clearTimeout(tvMovieTimeOut);
         tvMovieTimeOut = setTimeout(()=>{
-            checkTVMovieBUTTONS();
+            checkTVMovieBUTTONSTvMovie();
         }, 800);
 }
 
@@ -88,14 +90,14 @@ function navigationTVMovie(){
 
     currTVMoviePage = document.getElementById("currTVMoviePage");
     totalTVMoviePage = document.getElementById("totalTVMoviePage");
-    totalTVMoviePage.innerHTML = totalTVMoviePages;
+    totalTVMoviePage.innerHTML = totalTVPages;
     prevTVMovieBTN.addEventListener("click", navigateTVMoviePrevv);
     nextTVMovieBTN.addEventListener("click", navigateTVMovieNextt);
 }
 
 function tvMovieMoviesFunction(){
     makeOtherPagesZero();
-    let moviesFrom = currentTVMoviePages * 20;
+    let moviesFrom = (currentTVMoviePages - 1) * 20;
     let moviesTill = moviesFrom + 19;
     
     tvMovieMoviesList = [];

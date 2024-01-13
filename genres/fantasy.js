@@ -1,30 +1,33 @@
 let fantasyMoviesList = [];
 
-let currentFantasyPages = 0;
+let currentFantasyPages = 1;
 
 let prevFantasyBTN;
 let nextFantasyBTN; 
 let currFantasyPage;
 let totalFantasyPage;
 
-function makeOtherPagesZero(){
-    currentActionPages = 0;
-    currentAdventurePages = 0;
-    currentAnimationPages = 0;
-    currentComedyPages = 0
-    currentCrimePages = 0;
-    currentDramaPages = 0;
-    currentFamilyPages = 0;
-    currentHistoryPages = 0;
-    currentHorrorPages = 0;
-    currentMusicPages = 0;
-    currentysteryPages = 0;
-    currentRomancePages = 0;
-    currentSciFiPages = 0;
-    currentTVPages = 0;
-    currentThrillerPages = 0;
-    currentWarPages = 0;
-    currentWesternPages = 0;
+function makeOtherPagesZeroFantasy(){
+    currentActionPages = 1;
+    currentAdventurePages = 1;
+    currentAnimationPages = 1;
+    currentComedyPages = 1
+    currentCrimePages = 1;
+    currentDramaPages = 1;
+    currentFamilyPages = 1;
+    currentHistoryPages = 1;
+    currentHorrorPages = 1;
+    currentMusicPages = 1;
+    currentysteryPages = 1;
+    currentRomancePages = 1;
+    currentSciFiPages = 1;
+    currentTVPages = 1;
+    currentThrillerPages = 1;
+    currentWarPages = 1;
+    currentWesternPages = 1;
+
+    tabsContainer[0].classList.remove("active-tab"); 
+    fantasyGenreBTN.classList.add("active-tab"); 
 }
 
 let fantasyTimeOut;
@@ -94,8 +97,8 @@ function navigationFantasy(){
 }
 
 function fantasyMoviesFunction(){
-    makeOtherPagesZero();
-    let moviesFrom = currentFantasyPages * 20;
+    makeOtherPagesZeroFantasy();
+    let moviesFrom = (currentFantasyPages - 1) * 20;
     let moviesTill = moviesFrom + 19;
     
     fantasyMoviesList = [];

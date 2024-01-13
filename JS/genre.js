@@ -1,7 +1,7 @@
 /* this JS file renders all the genres which you can click and sort movies according to genre */
 
     // <div class="tabs">
-const tabsDIVVA = document.querySelector(".tabs");
+/* tabsDIVVA = document.querySelector(".tabs");
 let actionGenreBTN 
 let adventureGenreBTN
 let animationGenreBTN
@@ -23,23 +23,98 @@ let westernGenreBTN
 
 let genreButtons;
 
+const data = [
+    {
+        "id": 28,
+        "name": "Action"
+    },
+    {
+        "id": 12,
+        "name": "Adventure"
+    },
+    {
+        "id": 16,
+        "name": "Animation"
+    },
+    {
+        "id": 35,
+        "name": "Comedy"
+    },
+    {
+        "id": 80,
+        "name": "Crime"
+    },
+    {
+        "id": 99,
+        "name": "Documentary"
+    },
+    {
+        "id": 18,
+        "name": "Drama"
+    },
+    {
+        "id": 10751,
+        "name": "Family"
+    },
+    {
+        "id": 14,
+        "name": "Fantasy"
+    },
+    {
+        "id": 36,
+        "name": "History"
+    },
+    {
+        "id": 27,
+        "name": "Horror"
+    },
+    {
+        "id": 10402,
+        "name": "Music"
+    },
+    {
+        "id": 9648,
+        "name": "Mystery"
+    },
+    {
+        "id": 10749,
+        "name": "Romance"
+    },
+    {
+        "id": 878,
+        "name": "Science Fiction"
+    },
+    {
+        "id": 10770,
+        "name": "TV Movie"
+    },
+    {
+        "id": 53,
+        "name": "Thriller"
+    },
+    {
+        "id": 10752,
+        "name": "War"
+    },
+    {
+        "id": 37,
+        "name": "Western"
+    }
+];
 
-fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=167e1d3eb969e80d3b6128230a5e19dd`)
-    .then(response => response.json())
-    .then(data => {
-        console.log("GENRES", data);
+
         const genreIDARRAY ={};
-        for(let i = 0; i < data.genres.length; i++){
+        for(let i = 0; i < data.length; i++){
             const newButton = document.createElement("button");
-            if(data.genres[i].id == 99) continue;
-            newButton.id = data.genres[i].id;
-            newButton.textContent = data.genres[i].name;
+            if(data[i].id == 99) continue;
+            newButton.id = data[i].id;
+            newButton.textContent = data[i].name;
             newButton.setAttribute("disabled", "true")
             newButton.classList.add("buttonsDisabled")
             tabsDIVVA.appendChild(newButton);
-            genreIDARRAY[`${data.genres[i].id}`]=data.genres[i].name.replaceAll(" ", "-").toLowerCase();
-        }
-        actionGenreBTN = document.getElementById("28");
+            genreIDARRAY[`${data[i].id}`]=data[i].name.replaceAll(" ", "-").toLowerCase();
+        } */
+/*         actionGenreBTN = document.getElementById("28");
         adventureGenreBTN = document.getElementById("12");
         animationGenreBTN = document.getElementById("16");
         comedyGenreBTN = document.getElementById("35");
@@ -59,7 +134,8 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=167e1d3eb969e80d3b6
         westernGenreBTN = document.getElementById("37");
         localStorage.setItem("genreID", JSON.stringify(genreIDARRAY))
 
-        genreButtons = document.querySelectorAll(".buttonsDisabled");
+        genreButtons = document.querySelectorAll(".buttonsDisabled"); */
+
 
         actionGenreBTN.addEventListener("click", actionMoviesFunction)
         adventureGenreBTN.addEventListener("click", adventureMoviesFunction)
@@ -75,12 +151,34 @@ fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=167e1d3eb969e80d3b6
         mysteryGenreBTN.addEventListener("click", mysteryMoviesFunction)
         romanceGenreBTN.addEventListener("click", romanceMoviesFunction)
         sciFiGenreBTN.addEventListener("click", sciFiMoviesFunction)
-        tvMovieGenreBTN.addEventListener("click", tvMovieFunction)
+        tvMovieGenreBTN.addEventListener("click", tvMovieMoviesFunction)
         thrillerGenreBTN.addEventListener("click", thrillerMoviesFunction)
         warGenreBTN.addEventListener("click", warMoviesFunction)
         westernGenreBTN.addEventListener("click", westernMoviesFunction)
 
-    
-    })
+        
+
+        /* setTimeout(() => {
+            actionGenreBTN.addEventListener("click", actionMoviesFunction)
+        adventureGenreBTN.addEventListener("click", adventureMoviesFunction)
+        animationGenreBTN.addEventListener("click", animationMoviesFunction)
+        comedyGenreBTN.addEventListener("click", comedyMoviesFunction)
+        crimeGenreBTN.addEventListener("click", crimeMoviesFunction)
+        dramaGenreBTN.addEventListener("click", dramaMoviesFunction);
+        familyGenreBTN.addEventListener("click", familyMoviesFunction)
+        fantasyGenreBTN.addEventListener("click", fantasyMoviesFunction)
+        historyGenreBTN.addEventListener("click", historyMoviesFunction)
+        horrorGenreBTN.addEventListener("click", horrorMoviesFunction)
+        musicGenreBTN.addEventListener("click", musicMoviesFunction)
+        mysteryGenreBTN.addEventListener("click", mysteryMoviesFunction)
+        romanceGenreBTN.addEventListener("click", romanceMoviesFunction)
+        sciFiGenreBTN.addEventListener("click", sciFiMoviesFunction)
+        tvMovieGenreBTN.addEventListener("click", tvMovieMoviesFunction)
+        thrillerGenreBTN.addEventListener("click", thrillerMoviesFunction)
+        warGenreBTN.addEventListener("click", warMoviesFunction)
+        westernGenreBTN.addEventListener("click", westernMoviesFunction)
+        }, 6000) */
+        
+
 
 
