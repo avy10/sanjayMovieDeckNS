@@ -1,5 +1,6 @@
 .wave {
-  background: rgba(34, 188, 212, 0.2);
+  /* background: rgba(34, 188, 212, 0.2); */
+  background: rgba(176, 34, 212, 0.2);
   border-radius:  0 0 1000% 1000%;
   position: fixed;
   width: 200%;

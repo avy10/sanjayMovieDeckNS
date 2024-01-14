@@ -21,10 +21,11 @@ body {
   color:white;
   background: linear-gradient(
     315deg,
-    rgb(6, 6, 6) 3%,
-    rgb(16, 18, 19) 38%,
-    rgb(25, 31, 31) 68%,
-    rgb(5, 5, 5) 98%
+    rgb(0, 0, 0) 30%,
+    rgb(15, 15, 15) 50%,
+    rgba(10, 0, 0, 0.9)68%,
+    rgba(13, 0, 15, 1) 98%
+    
   );
   animation: gradient 25s ease-in-out infinite;
   background-size: 400% 400%;
@@ -199,27 +200,28 @@ footer {
 .card:hover{
     width: 500px; 
     transition: width 0.7s ease-in-out;
-    box-shadow: 12px 12px 12px rgb(65, 231, 231);
+    /* box-shadow: 6px 6px 6px rgb(65, 231, 231); */
+    box-shadow: 6px 6px 6px rgb(185, 27, 175);
     z-index: 3;
-    animation: cardShadow 10s ease-in-out infinite;
+    /* animation: cardShadow 10s ease-in-out infinite; */
 }
 
 @keyframes cardShadow {
   
   0%{
-    box-shadow: 12px 12px 12px rgb(65, 231, 231);
+    box-shadow: 6px 6px 6px rgb(65, 231, 231);
   }
   25%{
-    box-shadow: 12px 12px 12px rgb(185, 27, 175);
+    box-shadow: 6px 6px 6px rgb(185, 27, 175);
   }
   50%{
-    box-shadow: 12px 12px 12px rgb(74, 153, 233);
+    box-shadow: 6px 6px 6px rgb(74, 153, 233);
   }
   75%{
-    box-shadow: 12px 12px 12px rgb(230, 72, 72);
+    box-shadow: 6px 6px 6px rgb(230, 72, 72);
   }
   75%{
-    box-shadow: 12px 12px 12px rgb(64, 233, 222);
+    box-shadow: 6px 6px 6px rgb(64, 233, 222);
   }
   
 }
