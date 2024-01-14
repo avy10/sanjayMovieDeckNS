@@ -6,11 +6,11 @@
     margin-bottom: 0px;
   }
   .movies-list-pagination {
-    margin: 2vh 5vw;
+    margin: 20px 80px;
   }
   .card {
-    width: 15vw;
-    height: 40vh;
+    width: 240px;
+    height: 360px;
   }
   .card:hover{
     width: 23vw; 

@@ -8,6 +8,8 @@ gap: 10px;
 }
 
 
+
+
 .tabs {
     display: flex;
     justify-content: flex-start;
@@ -75,7 +77,9 @@ gap: 10px;
 .tabs button:hover{
     transform: scale(1.075);
     box-shadow: 6px 6px 6px purple;
-    border : none
+    border : none;
+      transition: transform 0.75s;
+
     
 }
 .buttonsDisabled{
@@ -124,3 +128,7 @@ gap: 10px;
     }
 }
 
+.tabs-container button:active{
+      transform: scale(0.95);
+  transition: transform 0.75s;
+}
